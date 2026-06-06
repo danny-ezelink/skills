@@ -47,7 +47,7 @@
   .hero { min-height: 100vh; padding: 120px clamp(1.5rem, 8vw, 8rem) 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; overflow: hidden; }
   .hero::before { content: ''; position: absolute; top: -20%; right: -10%; width: 70vw; height: 70vw; border-radius: 50%; background: radial-gradient(circle, rgba(196,80,42,0.06) 0%, transparent 70%); pointer-events: none; }
   .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--cream-dk); border: 1px solid var(--sand); padding: 0.35rem 0.9rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; color: var(--rust); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; animation: fadeUp 0.6s var(--ease) both; }
-  .hero-badge::before { content: '✦'; font-size: 0.6rem; }
+  .hero-badge::before { content: '\2726'; font-size: 0.6rem; }
   .hero-kicker { font-family: 'Playfair Display', serif; font-size: clamp(0.9rem, 2vw, 1rem); font-weight: 400; font-style: italic; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 0.4rem; animation: fadeUp 0.6s 0.1s var(--ease) both; }
   .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 7vw, 6.5rem); font-weight: 900; line-height: 0.92; color: var(--charcoal); margin-bottom: 0.3rem; animation: fadeUp 0.7s 0.15s var(--ease) both; }
   .hero-title .rust { color: var(--rust); }
@@ -77,7 +77,7 @@
   .marquee-wrap { background: var(--rust); padding: 0.75rem 0; overflow: hidden; white-space: nowrap; }
   .marquee-track { display: inline-flex; gap: 0; animation: marquee 28s linear infinite; }
   .marquee-item { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.85); text-transform: uppercase; letter-spacing: 0.1em; padding: 0 2.5rem; }
-  .marquee-item::before { content: '✦ '; color: rgba(255,255,255,0.4); }
+  .marquee-item::before { content: '\2726 '; color: rgba(255,255,255,0.4); }
   section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 8vw, 8rem); }
   .section-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rust); margin-bottom: 1rem; }
   .section-tag::before { content: ''; display: block; width: 24px; height: 2px; background: var(--rust); }
@@ -130,7 +130,7 @@
   .instructor-name { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 800; color: var(--charcoal); margin: 0.5rem 0; }
   .instructor-role { font-size: 0.9rem; color: var(--rust); font-weight: 600; margin-bottom: 1.5rem; }
   .instructor-bio { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
-  .instructor-socials { display: flex; gap: 0.75rem; }
+  .instructor-socials { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .social-pill { background: var(--cream-dk); border: 1px solid var(--sand); border-radius: 50px; padding: 0.4rem 1rem; font-size: 0.8rem; font-weight: 500; color: var(--ink); text-decoration: none; transition: all 0.2s; display: flex; align-items: center; gap: 0.4rem; }
   .social-pill:hover { border-color: var(--rust); color: var(--rust); }
   .testimonials { background: var(--cream-dk); }
@@ -180,7 +180,7 @@
   footer .logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--rust); letter-spacing: 0.05em; }
   footer .logo span { color: var(--white); }
   footer p { font-size: 0.8rem; color: var(--sand); }
-  footer nav { display: flex; gap: 1.5rem; position: static; background: none; border: none; height: auto; padding: 0; }
+  footer nav { display: flex; gap: 1.5rem; flex-wrap: wrap; position: static; background: none; border: none; height: auto; padding: 0; }
   footer nav a { font-size: 0.8rem; color: var(--sand); text-decoration: none; transition: color 0.2s; }
   footer nav a:hover { color: var(--rust-lt); }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
@@ -195,30 +195,32 @@
 <body>
 <div class="progress-bar" id="progressBar"></div>
 <nav>
-  <div class="nav-logo">✦ <span>Master of</span> Claude</div>
+  <div class="nav-logo">&#10022; <span>Master of</span> Claude</div>
   <ul class="nav-links">
+    <li><a href="#learn">About</a></li>
     <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#instructor">Instructor</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Enroll Now →</button>
+  <button class="nav-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Enroll Now &rarr;</button>
 </nav>
 <section class="hero" id="home">
   <div class="hero-left">
-    <div class="hero-badge">New Course — Now Enrolling</div>
+    <div class="hero-badge">New Course &mdash; Now Enrolling</div>
     <p class="hero-kicker">The Complete Masterclass</p>
     <h1 class="hero-title">Master<br><span class="rust">of</span><br><span class="outline">Claude</span></h1>
     <p class="hero-sub">Stop guessing. Start commanding. Learn the frameworks, prompting systems, and professional workflows that transform Claude from a chatbot into your most powerful thinking partner.</p>
     <div class="hero-actions">
-      <a href="#curriculum" class="btn-primary">Explore Curriculum ↓</a>
+      <a href="#curriculum" class="btn-primary">Explore Curriculum &darr;</a>
       <a href="#pricing" class="btn-ghost">See Pricing</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num">5</div><div class="stat-label">Core Modules</div></div>
       <div class="stat"><div class="stat-num">38</div><div class="stat-label">Lessons</div></div>
       <div class="stat"><div class="stat-num">12h</div><div class="stat-label">of Content</div></div>
-      <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Lifetime Access</div></div>
+      <div class="stat"><div class="stat-num">&infin;</div><div class="stat-label">Lifetime Access</div></div>
     </div>
   </div>
   <div class="hero-visual">
@@ -228,11 +230,11 @@
       <div class="hcard hcard-main">
         <div class="module-preview">
           <div class="mp-header"><div class="mp-num">01</div><div class="mp-title">Advanced Prompting</div></div>
-          <div class="mp-row"><span class="mp-row-icon">▶</span> The Anatomy of a Perfect Prompt</div>
-          <div class="mp-row"><span class="mp-row-icon">▶</span> Role-Based Prompting Frameworks</div>
-          <div class="mp-row"><span class="mp-row-icon">▶</span> Chain-of-Thought Techniques</div>
-          <div class="mp-row"><span class="mp-row-icon">▶</span> Iterative Refinement System</div>
-          <div class="mp-row"><span class="mp-row-icon">▶</span> Context Window Mastery</div>
+          <div class="mp-row"><span class="mp-row-icon">&#9658;</span> The Anatomy of a Perfect Prompt</div>
+          <div class="mp-row"><span class="mp-row-icon">&#9658;</span> Role-Based Prompting Frameworks</div>
+          <div class="mp-row"><span class="mp-row-icon">&#9658;</span> Chain-of-Thought Techniques</div>
+          <div class="mp-row"><span class="mp-row-icon">&#9658;</span> Iterative Refinement System</div>
+          <div class="mp-row"><span class="mp-row-icon">&#9658;</span> Context Window Mastery</div>
           <div style="height:1px;background:var(--cream-dk);margin:0.5rem 0"></div>
           <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--muted);padding:0 0.4rem"><span>8 Lessons</span><span style="color:var(--rust);font-weight:600">Module 1 of 5</span></div>
         </div>
@@ -246,80 +248,80 @@
   <h2 class="section-heading reveal">From beginner to<br><em>power user</em> in 5 modules</h2>
   <p class="section-sub reveal">Everything you need to unlock Claude's full potential across every area of your professional life.</p>
   <div class="wyl-grid">
-    <div class="wyl-card reveal"><div class="wyl-icon">🎯</div><h4>Precision Prompting</h4><p>Write prompts that get exactly what you need — first time, every time. No more vague outputs.</p></div>
-    <div class="wyl-card reveal"><div class="wyl-icon">🔬</div><h4>Research Superpowers</h4><p>Use Claude to synthesize complex information, spot patterns, and produce research-grade insights.</p></div>
-    <div class="wyl-card reveal"><div class="wyl-icon">📄</div><h4>Document Intelligence</h4><p>Process, summarize, and extract value from massive documents in seconds, not hours.</p></div>
-    <div class="wyl-card reveal"><div class="wyl-icon">🧠</div><h4>Strategic Thinking</h4><p>Use Claude as a thought partner for complex decisions, problem-solving, and scenario planning.</p></div>
-    <div class="wyl-card reveal"><div class="wyl-icon">⚙️</div><h4>Workflow Automation</h4><p>Build reusable prompt systems and professional templates that save 10+ hours every week.</p></div>
-    <div class="wyl-card reveal"><div class="wyl-icon">🚀</div><h4>Advanced Techniques</h4><p>Chain prompts, work with the API, build custom tools, and push Claude to its absolute limits.</p></div>
+    <div class="wyl-card reveal"><div class="wyl-icon">&#127919;</div><h4>Precision Prompting</h4><p>Write prompts that get exactly what you need &mdash; first time, every time. No more vague outputs.</p></div>
+    <div class="wyl-card reveal"><div class="wyl-icon">&#128300;</div><h4>Research Superpowers</h4><p>Use Claude to synthesize complex information, spot patterns, and produce research-grade insights.</p></div>
+    <div class="wyl-card reveal"><div class="wyl-icon">&#128196;</div><h4>Document Intelligence</h4><p>Process, summarize, and extract value from massive documents in seconds, not hours.</p></div>
+    <div class="wyl-card reveal"><div class="wyl-icon">&#129504;</div><h4>Strategic Thinking</h4><p>Use Claude as a thought partner for complex decisions, problem-solving, and scenario planning.</p></div>
+    <div class="wyl-card reveal"><div class="wyl-icon">&#9881;&#65039;</div><h4>Workflow Automation</h4><p>Build reusable prompt systems and professional templates that save 10+ hours every week.</p></div>
+    <div class="wyl-card reveal"><div class="wyl-icon">&#128640;</div><h4>Advanced Techniques</h4><p>Chain prompts, work with the API, build custom tools, and push Claude to its absolute limits.</p></div>
   </div>
 </section>
 <section class="curriculum" id="curriculum">
   <div class="section-tag reveal">Full Curriculum</div>
   <h2 class="section-heading reveal">5 Modules. 38 Lessons.<br>Total transformation.</h2>
-  <p class="section-sub reveal">Every module is built around real-world results — not theory. Click any module to preview the lessons.</p>
+  <p class="section-sub reveal">Every module is built around real-world results &mdash; not theory. Click any module to preview the lessons.</p>
   <div class="modules-list reveal">
     <div class="module-item active" data-module="1">
-      <div class="module-header" onclick="toggleModule(this)"><div class="module-num">01</div><div class="module-info"><h3>Advanced Prompting</h3><p>Master the art and science of prompting to get exceptional results with Claude every time.</p></div><div class="module-meta"><div class="module-count">📖 8 Lessons</div><div class="module-toggle">+</div></div></div>
+      <div class="module-header" onclick="toggleModule(this)"><div class="module-num">01</div><div class="module-info"><h3>Advanced Prompting</h3><p>Master the art and science of prompting to get exceptional results with Claude every time.</p></div><div class="module-meta"><div class="module-count">&#128214; 8 Lessons</div><div class="module-toggle">+</div></div></div>
       <div class="module-lessons"><div class="lessons-inner">
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">The Anatomy of a Perfect Prompt</span><span class="lesson-free">Free</span><span class="lesson-dur">14 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Role-Based Prompting Frameworks</span><span class="lesson-dur">18 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Chain-of-Thought Techniques</span><span class="lesson-dur">22 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">The RISEN Prompt Formula</span><span class="lesson-dur">20 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Context Window Mastery</span><span class="lesson-dur">16 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Iterative Refinement System</span><span class="lesson-dur">19 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Negative Prompting &amp; Constraints</span><span class="lesson-dur">15 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">📝</div><span class="lesson-name">Module 1 — Prompt Library Download</span><span class="lesson-dur">Resource</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">The Anatomy of a Perfect Prompt</span><span class="lesson-free">Free</span><span class="lesson-dur">14 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Role-Based Prompting Frameworks</span><span class="lesson-dur">18 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Chain-of-Thought Techniques</span><span class="lesson-dur">22 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">The RISEN Prompt Formula</span><span class="lesson-dur">20 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Context Window Mastery</span><span class="lesson-dur">16 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Iterative Refinement System</span><span class="lesson-dur">19 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Negative Prompting &amp; Constraints</span><span class="lesson-dur">15 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#128221;</div><span class="lesson-name">Module 1 &mdash; Prompt Library Download</span><span class="lesson-dur">Resource</span></div>
       </div></div>
     </div>
     <div class="module-item" data-module="2">
-      <div class="module-header" onclick="toggleModule(this)"><div class="module-num">02</div><div class="module-info"><h3>Deep Research</h3><p>Leverage Claude to conduct thorough research and uncover powerful insights at scale.</p></div><div class="module-meta"><div class="module-count">📖 6 Lessons</div><div class="module-toggle">+</div></div></div>
+      <div class="module-header" onclick="toggleModule(this)"><div class="module-num">02</div><div class="module-info"><h3>Deep Research</h3><p>Leverage Claude to conduct thorough research and uncover powerful insights at scale.</p></div><div class="module-meta"><div class="module-count">&#128214; 6 Lessons</div><div class="module-toggle">+</div></div></div>
       <div class="module-lessons"><div class="lessons-inner">
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Building a Research Framework</span><span class="lesson-free">Free</span><span class="lesson-dur">17 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Competitive Intelligence with Claude</span><span class="lesson-dur">24 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Source Synthesis &amp; Fact-Checking</span><span class="lesson-dur">21 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Rapid Literature Review Technique</span><span class="lesson-dur">19 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Turning Research into Reports</span><span class="lesson-dur">26 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">📝</div><span class="lesson-name">Research Prompt Templates</span><span class="lesson-dur">Resource</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Building a Research Framework</span><span class="lesson-free">Free</span><span class="lesson-dur">17 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Competitive Intelligence with Claude</span><span class="lesson-dur">24 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Source Synthesis &amp; Fact-Checking</span><span class="lesson-dur">21 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Rapid Literature Review Technique</span><span class="lesson-dur">19 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Turning Research into Reports</span><span class="lesson-dur">26 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#128221;</div><span class="lesson-name">Research Prompt Templates</span><span class="lesson-dur">Resource</span></div>
       </div></div>
     </div>
     <div class="module-item" data-module="3">
-      <div class="module-header" onclick="toggleModule(this)"><div class="module-num">03</div><div class="module-info"><h3>Long Documents</h3><p>Work with long documents efficiently — extract, summarize, and act on what matters most.</p></div><div class="module-meta"><div class="module-count">📖 8 Lessons</div><div class="module-toggle">+</div></div></div>
+      <div class="module-header" onclick="toggleModule(this)"><div class="module-num">03</div><div class="module-info"><h3>Long Documents</h3><p>Work with long documents efficiently &mdash; extract, summarize, and act on what matters most.</p></div><div class="module-meta"><div class="module-count">&#128214; 8 Lessons</div><div class="module-toggle">+</div></div></div>
       <div class="module-lessons"><div class="lessons-inner">
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">The Smart Document Upload System</span><span class="lesson-free">Free</span><span class="lesson-dur">13 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Extracting Key Information Fast</span><span class="lesson-dur">18 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Multi-Document Synthesis</span><span class="lesson-dur">22 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Contract &amp; Legal Document Review</span><span class="lesson-dur">20 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">PDF Analysis at Scale</span><span class="lesson-dur">17 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Creating Executive Summaries</span><span class="lesson-dur">15 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">The Chunking Strategy</span><span class="lesson-dur">16 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">📝</div><span class="lesson-name">Document Analysis Prompts</span><span class="lesson-dur">Resource</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">The Smart Document Upload System</span><span class="lesson-free">Free</span><span class="lesson-dur">13 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Extracting Key Information Fast</span><span class="lesson-dur">18 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Multi-Document Synthesis</span><span class="lesson-dur">22 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Contract &amp; Legal Document Review</span><span class="lesson-dur">20 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">PDF Analysis at Scale</span><span class="lesson-dur">17 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Creating Executive Summaries</span><span class="lesson-dur">15 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">The Chunking Strategy</span><span class="lesson-dur">16 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#128221;</div><span class="lesson-name">Document Analysis Prompts</span><span class="lesson-dur">Resource</span></div>
       </div></div>
     </div>
     <div class="module-item" data-module="4">
-      <div class="module-header" onclick="toggleModule(this)"><div class="module-num">04</div><div class="module-info"><h3>Strategic Thinking</h3><p>Use Claude to think deeper, solve complex problems, and make better decisions.</p></div><div class="module-meta"><div class="module-count">📖 8 Lessons</div><div class="module-toggle">+</div></div></div>
+      <div class="module-header" onclick="toggleModule(this)"><div class="module-num">04</div><div class="module-info"><h3>Strategic Thinking</h3><p>Use Claude to think deeper, solve complex problems, and make better decisions.</p></div><div class="module-meta"><div class="module-count">&#128214; 8 Lessons</div><div class="module-toggle">+</div></div></div>
       <div class="module-lessons"><div class="lessons-inner">
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Claude as Your Thought Partner</span><span class="lesson-free">Free</span><span class="lesson-dur">20 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">First Principles Problem Solving</span><span class="lesson-dur">23 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Scenario Planning &amp; Risk Analysis</span><span class="lesson-dur">25 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Devil's Advocate Frameworks</span><span class="lesson-dur">18 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Decision Matrix with Claude</span><span class="lesson-dur">21 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Idea Generation &amp; Brainstorming</span><span class="lesson-dur">17 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Strategic Writing &amp; Persuasion</span><span class="lesson-dur">19 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">📝</div><span class="lesson-name">Strategic Thinking Workbook</span><span class="lesson-dur">Resource</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Claude as Your Thought Partner</span><span class="lesson-free">Free</span><span class="lesson-dur">20 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">First Principles Problem Solving</span><span class="lesson-dur">23 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Scenario Planning &amp; Risk Analysis</span><span class="lesson-dur">25 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Devil's Advocate Frameworks</span><span class="lesson-dur">18 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Decision Matrix with Claude</span><span class="lesson-dur">21 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Idea Generation &amp; Brainstorming</span><span class="lesson-dur">17 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Strategic Writing &amp; Persuasion</span><span class="lesson-dur">19 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#128221;</div><span class="lesson-name">Strategic Thinking Workbook</span><span class="lesson-dur">Resource</span></div>
       </div></div>
     </div>
     <div class="module-item" data-module="5">
-      <div class="module-header" onclick="toggleModule(this)"><div class="module-num">05</div><div class="module-info"><h3>Professional Workflows</h3><p>Build and optimize professional workflows with Claude that save time and drive results.</p></div><div class="module-meta"><div class="module-count">📖 8 Lessons</div><div class="module-toggle">+</div></div></div>
+      <div class="module-header" onclick="toggleModule(this)"><div class="module-num">05</div><div class="module-info"><h3>Professional Workflows</h3><p>Build and optimize professional workflows with Claude that save time and drive results.</p></div><div class="module-meta"><div class="module-count">&#128214; 8 Lessons</div><div class="module-toggle">+</div></div></div>
       <div class="module-lessons"><div class="lessons-inner">
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Building Your Prompt Library</span><span class="lesson-free">Free</span><span class="lesson-dur">16 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Email &amp; Communication Automation</span><span class="lesson-dur">20 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Content Creation at Scale</span><span class="lesson-dur">22 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Code &amp; Technical Workflows</span><span class="lesson-dur">28 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Meeting &amp; Project Management</span><span class="lesson-dur">19 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">Custom GPT-Style Systems in Claude</span><span class="lesson-dur">24 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">▶</div><span class="lesson-name">API Integration for Power Users</span><span class="lesson-dur">30 min</span></div>
-        <div class="lesson-row"><div class="lesson-icon">📝</div><span class="lesson-name">Full Workflow Template Pack</span><span class="lesson-dur">Resource</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Building Your Prompt Library</span><span class="lesson-free">Free</span><span class="lesson-dur">16 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Email &amp; Communication Automation</span><span class="lesson-dur">20 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Content Creation at Scale</span><span class="lesson-dur">22 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Code &amp; Technical Workflows</span><span class="lesson-dur">28 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Meeting &amp; Project Management</span><span class="lesson-dur">19 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">Custom GPT-Style Systems in Claude</span><span class="lesson-dur">24 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#9658;</div><span class="lesson-name">API Integration for Power Users</span><span class="lesson-dur">30 min</span></div>
+        <div class="lesson-row"><div class="lesson-icon">&#128221;</div><span class="lesson-name">Full Workflow Template Pack</span><span class="lesson-dur">Resource</span></div>
       </div></div>
     </div>
   </div>
@@ -345,14 +347,21 @@
 </section>
 <section id="instructor">
   <div class="instructor-wrap">
-    <div class="instructor-img-wrap reveal"><div class="instructor-img-placeholder">🎓</div><div class="instructor-badge-float"><div class="num">38</div><div class="label">Lessons</div></div></div>
+    <div class="instructor-img-wrap reveal">
+      <div class="instructor-img-placeholder">&#127891;</div>
+      <div class="instructor-badge-float"><div class="num">38</div><div class="label">Lessons</div></div>
+    </div>
     <div class="instructor-text reveal">
       <div class="section-tag">Your Instructor</div>
       <h2 class="instructor-name">Alex Morgan</h2>
       <p class="instructor-role">AI Strategist &amp; Prompt Engineer</p>
-      <p class="instructor-bio">Alex has spent thousands of hours working with Claude across enterprise deployments, research projects, and personal productivity systems. After helping 500+ professionals transform how they work with AI, she distilled everything into this masterclass — the exact frameworks she uses every day.</p>
+      <p class="instructor-bio">Alex has spent thousands of hours working with Claude across enterprise deployments, research projects, and personal productivity systems. After helping 500+ professionals transform how they work with AI, she distilled everything into this masterclass &mdash; the exact frameworks she uses every day.</p>
       <p class="instructor-bio">Her prompting systems have been used by Fortune 500 teams, solo founders, researchers, and writers. She's obsessed with one thing: making Claude work <em>for you</em>, not the other way around.</p>
-      <div class="instructor-socials"><a href="#" class="social-pill">𝕏 @alexmorgan_ai</a><a href="#" class="social-pill">in LinkedIn</a><a href="#" class="social-pill">🌐 Website</a></div>
+      <div class="instructor-socials">
+        <a href="mailto:danny@ezelink.com" class="social-pill">&#9993; Get in Touch</a>
+        <a href="#curriculum" class="social-pill">&#128218; View Curriculum</a>
+        <a href="#pricing" class="social-pill">&rarr; Enroll Now</a>
+      </div>
     </div>
   </div>
 </section>
@@ -360,12 +369,12 @@
   <div class="section-tag reveal">Student Results</div>
   <h2 class="section-heading reveal">Real people.<br>Real transformation.</h2>
   <div class="testi-grid">
-    <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="testi-text">"I've tried every AI course out there. This is the only one that actually changed how I work. Module 2 alone saved me 6 hours this week."</p><div class="testi-author"><div class="author-av">JK</div><div><div class="author-name">James K.</div><div class="author-title">Product Manager, Series B Startup</div></div></div></div>
-    <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="testi-text">"The Strategic Thinking module is worth 10x the course price. I now use Claude for every major decision. My team thinks I have a secret research team."</p><div class="testi-author"><div class="author-av">SR</div><div><div class="author-name">Sarah R.</div><div class="author-title">Founder &amp; CEO</div></div></div></div>
-    <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="testi-text">"As a lawyer, the Long Documents module transformed my practice. I reviewed a 200-page contract in 40 minutes. What used to take 3 days."</p><div class="testi-author"><div class="author-av">MT</div><div><div class="author-name">Marcus T.</div><div class="author-title">Attorney, Corporate Law</div></div></div></div>
-    <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="testi-text">"The prompt frameworks in Module 1 are unlike anything I've seen. I now get publication-ready content from Claude on the first try. Game changer."</p><div class="testi-author"><div class="author-av">LP</div><div><div class="author-name">Lisa P.</div><div class="author-title">Content Strategist</div></div></div></div>
-    <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="testi-text">"I was skeptical another AI course would teach me anything. I was wrong. The Workflow Automation module alone is worth 3x what I paid."</p><div class="testi-author"><div class="author-av">DO</div><div><div class="author-name">David O.</div><div class="author-title">Software Engineer</div></div></div></div>
-    <div class="testi-card reveal"><div class="stars">★★★★★</div><p class="testi-text">"My research output tripled. I'm publishing twice as fast. The deep research techniques are something I use literally every single day."</p><div class="testi-author"><div class="author-av">AN</div><div><div class="author-name">Aisha N.</div><div class="author-title">PhD Researcher</div></div></div></div>
+    <div class="testi-card reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testi-text">&ldquo;I've tried every AI course out there. This is the only one that actually changed how I work. Module 2 alone saved me 6 hours this week.&rdquo;</p><div class="testi-author"><div class="author-av">JK</div><div><div class="author-name">James K.</div><div class="author-title">Product Manager, Series B Startup</div></div></div></div>
+    <div class="testi-card reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testi-text">&ldquo;The Strategic Thinking module is worth 10x the course price. I now use Claude for every major decision. My team thinks I have a secret research team.&rdquo;</p><div class="testi-author"><div class="author-av">SR</div><div><div class="author-name">Sarah R.</div><div class="author-title">Founder &amp; CEO</div></div></div></div>
+    <div class="testi-card reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testi-text">&ldquo;As a lawyer, the Long Documents module transformed my practice. I reviewed a 200-page contract in 40 minutes. What used to take 3 days.&rdquo;</p><div class="testi-author"><div class="author-av">MT</div><div><div class="author-name">Marcus T.</div><div class="author-title">Attorney, Corporate Law</div></div></div></div>
+    <div class="testi-card reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testi-text">&ldquo;The prompt frameworks in Module 1 are unlike anything I've seen. I now get publication-ready content from Claude on the first try. Game changer.&rdquo;</p><div class="testi-author"><div class="author-av">LP</div><div><div class="author-name">Lisa P.</div><div class="author-title">Content Strategist</div></div></div></div>
+    <div class="testi-card reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testi-text">&ldquo;I was skeptical another AI course would teach me anything. I was wrong. The Workflow Automation module alone is worth 3x what I paid.&rdquo;</p><div class="testi-author"><div class="author-av">DO</div><div><div class="author-name">David O.</div><div class="author-title">Software Engineer</div></div></div></div>
+    <div class="testi-card reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testi-text">&ldquo;My research output tripled. I'm publishing twice as fast. The deep research techniques are something I use literally every single day.&rdquo;</p><div class="testi-author"><div class="author-av">AN</div><div><div class="author-name">Aisha N.</div><div class="author-title">PhD Researcher</div></div></div></div>
   </div>
 </section>
 <section id="pricing">
@@ -375,9 +384,50 @@
     <p class="section-sub reveal" style="margin-inline:auto">One course. Everything you need. No subscriptions, no upsells.</p>
   </div>
   <div class="pricing-grid reveal">
-    <div class="price-card"><div class="price-plan">Starter</div><div class="price-amount">$97</div><div class="price-period">One-time payment</div><ul class="price-features"><li><span class="check">✓</span> Modules 1–3 (22 lessons)</li><li><span class="check">✓</span> All video content</li><li><span class="check">✓</span> Downloadable prompt templates</li><li><span class="check">✓</span> Lifetime access</li><li><span class="check">✓</span> Community access</li></ul><button class="price-btn ghost">Get Starter</button></div>
-    <div class="price-card featured"><div class="price-badge">Most Popular</div><div class="price-plan" style="color:#E8724E">Complete</div><div class="price-amount" style="color:#FFFFFF">$197</div><div class="price-period" style="color:#A09880">One-time payment · Best value</div><ul class="price-features"><li><span class="check">✓</span> All 5 Modules (38 lessons)</li><li><span class="check">✓</span> All video content + transcripts</li><li><span class="check">✓</span> Full prompt library (200+ prompts)</li><li><span class="check">✓</span> Workflow template packs</li><li><span class="check">✓</span> Private community access</li><li><span class="check">✓</span> Monthly live Q&amp;A calls</li><li><span class="check">✓</span> Lifetime updates</li><li><span class="check">✓</span> 30-day money-back guarantee</li></ul><button class="price-btn">Enroll in Complete →</button></div>
-    <div class="price-card"><div class="price-plan">Teams</div><div class="price-amount">$497</div><div class="price-period">Up to 5 seats</div><ul class="price-features"><li><span class="check">✓</span> Everything in Complete</li><li><span class="check">✓</span> Team dashboard</li><li><span class="check">✓</span> Progress tracking</li><li><span class="check">✓</span> Team prompt library</li><li><span class="check">✓</span> Private team Q&amp;A session</li><li><span class="check">✓</span> Custom onboarding call</li></ul><button class="price-btn ghost">Contact for Teams</button></div>
+    <div class="price-card">
+      <div class="price-plan">Starter</div>
+      <div class="price-amount">$97</div>
+      <div class="price-period">One-time payment</div>
+      <ul class="price-features">
+        <li><span class="check">&#10003;</span> Modules 1&ndash;3 (22 lessons)</li>
+        <li><span class="check">&#10003;</span> All video content</li>
+        <li><span class="check">&#10003;</span> Downloadable prompt templates</li>
+        <li><span class="check">&#10003;</span> Lifetime access</li>
+        <li><span class="check">&#10003;</span> Community access</li>
+      </ul>
+      <button class="price-btn ghost" onclick="window.location='mailto:danny@ezelink.com?subject=Master%20of%20Claude%20%E2%80%94%20Starter%20Plan%20(%2497)&body=Hi%2C%20I%27d%20like%20to%20enroll%20in%20the%20Master%20of%20Claude%20Starter%20plan%20(%2497).%0A%0APlease%20send%20me%20access%20details.'">Get Starter</button>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge">Most Popular</div>
+      <div class="price-plan" style="color:#E8724E">Complete</div>
+      <div class="price-amount" style="color:#FFFFFF">$197</div>
+      <div class="price-period" style="color:#A09880">One-time payment &middot; Best value</div>
+      <ul class="price-features">
+        <li><span class="check">&#10003;</span> All 5 Modules (38 lessons)</li>
+        <li><span class="check">&#10003;</span> All video content + transcripts</li>
+        <li><span class="check">&#10003;</span> Full prompt library (200+ prompts)</li>
+        <li><span class="check">&#10003;</span> Workflow template packs</li>
+        <li><span class="check">&#10003;</span> Private community access</li>
+        <li><span class="check">&#10003;</span> Monthly live Q&amp;A calls</li>
+        <li><span class="check">&#10003;</span> Lifetime updates</li>
+        <li><span class="check">&#10003;</span> 30-day money-back guarantee</li>
+      </ul>
+      <button class="price-btn" onclick="window.location='mailto:danny@ezelink.com?subject=Master%20of%20Claude%20%E2%80%94%20Complete%20Plan%20(%24197)&body=Hi%2C%20I%27d%20like%20to%20enroll%20in%20the%20Master%20of%20Claude%20Complete%20plan%20(%24197).%0A%0APlease%20send%20me%20access%20details.'">Enroll in Complete &rarr;</button>
+    </div>
+    <div class="price-card">
+      <div class="price-plan">Teams</div>
+      <div class="price-amount">$497</div>
+      <div class="price-period">Up to 5 seats</div>
+      <ul class="price-features">
+        <li><span class="check">&#10003;</span> Everything in Complete</li>
+        <li><span class="check">&#10003;</span> Team dashboard</li>
+        <li><span class="check">&#10003;</span> Progress tracking</li>
+        <li><span class="check">&#10003;</span> Team prompt library</li>
+        <li><span class="check">&#10003;</span> Private team Q&amp;A session</li>
+        <li><span class="check">&#10003;</span> Custom onboarding call</li>
+      </ul>
+      <button class="price-btn ghost" onclick="window.location='mailto:danny@ezelink.com?subject=Master%20of%20Claude%20%E2%80%94%20Teams%20Plan%20(%24497)&body=Hi%2C%20I%27m%20interested%20in%20the%20Teams%20plan%20(%24497%20for%20up%20to%205%20seats).%0A%0ATeam%20size%3A%20%0AUse%20case%3A%20%0AOrganization%3A%20'">Contact for Teams</button>
+    </div>
   </div>
 </section>
 <section id="faq" style="padding-bottom:2rem">
@@ -385,21 +435,40 @@
   <div class="faq-list reveal">
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need any prior experience with Claude or AI?<div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner">No prior experience required. The course starts from the fundamentals and builds to advanced techniques. If you've used Claude before, you'll move quickly through the early material and get deep value from the advanced modules.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Which version of Claude do I need?<div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner">The course works with Claude.ai (free or Pro) as well as the API. Most techniques work on the free tier, but we recommend Claude Pro or the API for the advanced modules that involve large documents and extended context.</div></div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long do I have access to the course?<div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner">You have lifetime access to everything — including all future updates. When Anthropic ships new Claude features, we update the course and you get the new material at no extra cost.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long do I have access to the course?<div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner">You have lifetime access to everything &mdash; including all future updates. When Anthropic ships new Claude features, we update the course and you get the new material at no extra cost.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is there a money-back guarantee?<div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner">Absolutely. The Complete plan includes a 30-day no-questions-asked money-back guarantee. If you go through the course and don't find it valuable, email us and we'll refund you in full.</div></div></div>
-    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How is this different from just watching YouTube tutorials?<div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner">YouTube gives you scattered tips. This course gives you a complete, structured system. You'll get proven frameworks, 200+ battle-tested prompts, downloadable templates, and a community — not just isolated videos.</div></div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How is this different from just watching YouTube tutorials?<div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner">YouTube gives you scattered tips. This course gives you a complete, structured system. You'll get proven frameworks, 200+ battle-tested prompts, downloadable templates, and a community &mdash; not just isolated videos.</div></div></div>
     <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I expense this for work?<div class="faq-icon">+</div></div><div class="faq-a"><div class="faq-a-inner">Yes. We provide a detailed receipt and invoice for business purchases. Many students successfully expense this course as professional development. We can also provide a letter of completion if needed.</div></div></div>
   </div>
 </section>
-<section class="cta-section"><div class="section-tag reveal" style="color:rgba(255,255,255,0.7);justify-content:center"><span style="background:rgba(255,255,255,0.2)">Ready to start?</span></div><h2 class="section-heading reveal" style="font-size:clamp(2rem,5vw,3.5rem)">Stop guessing.<br>Start mastering.</h2><p class="section-sub reveal">Join thousands of professionals who've unlocked Claude's full potential. The results start with lesson one.</p><a href="#pricing" class="btn-primary reveal" style="margin-top:2rem;display:inline-flex">Enroll in Master of Claude →</a><p style="color:rgba(255,255,255,0.5);font-size:0.8rem;margin-top:1rem">30-day money-back guarantee · Lifetime access · Instant start</p></section>
-<footer><div class="logo">✦ <span>Master of</span> Claude</div><nav><a href="#curriculum">Curriculum</a><a href="#instructor">Instructor</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></nav><p>© 2025 Master of Claude. All rights reserved.</p></footer>
+<section class="cta-section">
+  <div class="section-tag reveal" style="color:rgba(255,255,255,0.7);justify-content:center"><span style="background:rgba(255,255,255,0.2)">Ready to start?</span></div>
+  <h2 class="section-heading reveal" style="font-size:clamp(2rem,5vw,3.5rem)">Stop guessing.<br>Start mastering.</h2>
+  <p class="section-sub reveal">Join thousands of professionals who've unlocked Claude's full potential. The results start with lesson one.</p>
+  <a href="#pricing" class="btn-primary reveal" style="margin-top:2rem;display:inline-flex">Enroll in Master of Claude &rarr;</a>
+  <p style="color:rgba(255,255,255,0.5);font-size:0.8rem;margin-top:1rem">30-day money-back guarantee &middot; Lifetime access &middot; Instant start</p>
+</section>
+<footer>
+  <div class="logo">&#10022; <span>Master of</span> Claude</div>
+  <nav>
+    <a href="#learn">About</a>
+    <a href="#curriculum">Curriculum</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#instructor">Instructor</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="mailto:danny@ezelink.com">Contact</a>
+  </nav>
+  <p>&copy; 2025 Master of Claude. All rights reserved.</p>
+</footer>
 <script>
   window.addEventListener('scroll', () => { const h = document.documentElement; const pct = (window.scrollY / (h.scrollHeight - h.clientHeight)) * 100; document.getElementById('progressBar').style.width = pct + '%'; });
   const observer = new IntersectionObserver((entries) => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   function toggleModule(header) { const item = header.closest('.module-item'); const isActive = item.classList.contains('active'); document.querySelectorAll('.module-item.active').forEach(m => m.classList.remove('active')); if (!isActive) item.classList.add('active'); }
   function toggleFaq(q) { const item = q.closest('.faq-item'); const isOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item.open').forEach(f => f.classList.remove('open')); if (!isOpen) item.classList.add('open'); }
-  const sections = document.querySelectorAll('section[id]'); const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => { let current = ''; sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; }); navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--rust)' : ''; }); });
 </script>
 </body>
